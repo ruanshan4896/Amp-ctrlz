@@ -4,6 +4,9 @@ module.exports = function(eleventyConfig) {
   // Copy images folder to output
   eleventyConfig.addPassthroughCopy("src/images");
   
+  // Copy favicon to output
+  eleventyConfig.addPassthroughCopy("amp.ico");
+  
   // Minify HTML output
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if(outputPath && outputPath.endsWith(".html")) {
