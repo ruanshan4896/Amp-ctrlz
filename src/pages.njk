@@ -5,6 +5,7 @@ pagination:
   alias: p
 permalink: "{{ p.brand }}/{{ p.slug }}/"
 ---
+{%- set colors = p.slug | randomColorScheme -%}
 <!DOCTYPE html>
 <html ⚡ lang="vi">
 <head>
@@ -50,7 +51,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
     
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f0f1e;
+      background: {{ colors.bg }};
       color: #ffffff;
       overflow-x: hidden;
       min-height: 100vh;
@@ -64,7 +65,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       z-index: 1000;
       background: rgba(0, 0, 0, 0.95);
       padding: 10px 15px;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+      border-bottom: 1px solid {{ colors.primary }}33;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -105,14 +106,14 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
     h1 {
       font-size: 32px;
       font-weight: 900;
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+      background: linear-gradient(135deg, {{ colors.primary }} 0%, {{ colors.secondary }} 50%, {{ colors.primary }} 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 15px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      text-shadow: 0 0 30px {{ colors.primary }}80;
       line-height: 1.2;
     }
     
@@ -131,7 +132,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       font-weight: bold;
       text-decoration: none;
       color: #ffffff;
-      background: linear-gradient(135deg, #FF6B6B 0%, #FF4444 100%);
+      background: linear-gradient(135deg, {{ colors.accent }} 0%, {{ colors.accent }}DD 100%);
       border-radius: 50px;
       border: none;
       border-bottom: 6px solid #CC0000;
@@ -155,7 +156,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       text-align: center;
       font-size: 28px;
       margin-bottom: 30px;
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      background: linear-gradient(135deg, {{ colors.primary }} 0%, {{ colors.secondary }} 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -173,7 +174,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       background: rgba(26, 26, 46, 0.8);
       padding: 25px;
       border-radius: 20px;
-      border: 2px solid rgba(255, 215, 0, 0.3);
+      border: 2px solid {{ colors.primary }}4D;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
       text-align: center;
     }
@@ -186,7 +187,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
     .feature-title {
       font-size: 20px;
       margin-bottom: 10px;
-      color: #FFD700;
+      color: {{ colors.primary }};
       font-weight: bold;
     }
     
@@ -206,7 +207,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       text-align: center;
       font-size: 28px;
       margin-bottom: 30px;
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      background: linear-gradient(135deg, {{ colors.primary }} 0%, {{ colors.secondary }} 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -216,19 +217,19 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       background: rgba(26, 26, 46, 0.8);
       padding: 30px 20px;
       border-radius: 20px;
-      border: 2px solid rgba(255, 215, 0, 0.2);
+      border: 2px solid {{ colors.primary }}33;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
       line-height: 1.8;
       color: #cccccc;
     }
     
     .content-article h2 {
-      color: #FFD700;
+      color: {{ colors.primary }};
       font-size: 24px;
       margin: 25px 0 15px;
       text-align: left;
       background: none;
-      -webkit-text-fill-color: #FFD700;
+      -webkit-text-fill-color: {{ colors.primary }};
     }
     
     .content-article h2:first-child {
@@ -236,7 +237,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
     }
     
     .content-article h3 {
-      color: #FFD700;
+      color: {{ colors.primary }};
       font-size: 20px;
       margin: 25px 0 15px;
     }
@@ -265,14 +266,14 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
     }
     
     .content-article a {
-      color: #FFD700;
+      color: {{ colors.primary }};
       text-decoration: none;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+      border-bottom: 1px solid {{ colors.primary }}4D;
       transition: all 0.3s ease;
     }
     
     .content-article a:hover {
-      border-bottom-color: #FFD700;
+      border-bottom-color: {{ colors.primary }};
     }
     
     .sticky-footer {
@@ -282,7 +283,7 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       right: 0;
       background: rgba(0, 0, 0, 0.95);
       padding: 12px 15px;
-      border-top: 2px solid rgba(255, 215, 0, 0.3);
+      border-top: 2px solid {{ colors.primary }}4D;
       z-index: 999;
       display: flex;
       justify-content: center;
@@ -299,12 +300,12 @@ permalink: "{{ p.brand }}/{{ p.slug }}/"
       font-weight: bold;
       text-decoration: none;
       color: #ffffff;
-      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+      background: linear-gradient(135deg, {{ colors.secondary }} 0%, {{ colors.primary }} 100%);
       border-radius: 50px;
       border: none;
       border-bottom: 4px solid #CC8800;
       box-shadow: 
-        0 5px 30px rgba(255, 215, 0, 0.6),
+        0 5px 30px {{ colors.primary }}99,
         inset 0 -3px 10px rgba(0, 0, 0, 0.3);
       text-transform: uppercase;
       letter-spacing: 1px;
